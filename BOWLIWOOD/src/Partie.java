@@ -60,4 +60,9 @@ class Partie {
 		return list;
 	}
 
+	public void removeCurrentPLayer()
+	{
+		playerList.remove(currentPlayer);
+	}
+
 }

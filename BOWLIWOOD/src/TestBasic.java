@@ -93,4 +93,17 @@ public class TestBasic  {
 		assertFalse(partie.getAllPlayersScore().get(1).getScore()==6);
 		assertFalse(partie.getAllPlayersScore().size()==1);
 	}
+
+	@Test
+	public void testPlayerLeaves()
+	{
+		Partie partie= new Partie();
+		partie.setJoueur(new Joueur("Bob"));
+		partie.setJoueur(new Joueur("Joe"));
+		partie.setJoueur(new Joueur("Moe"));
+		partie.removeCurrentPLayer();
+		assertTrue(partie.getNbJoueurs()==2);
+		assertFalse(partie.getNbJoueurs()==3);
+
+	}
 }
