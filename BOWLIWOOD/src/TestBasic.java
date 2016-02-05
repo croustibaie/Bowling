@@ -1,7 +1,11 @@
 import junit.framework.TestCase;
+import org.junit.*;
 
-public class TestBasic extends TestCase {
-  public void testTrue() {
-    assertTrue(true);
-  }
+public class TestBasic  {
+	
+	@Test
+	public void testPartie() {
+		Partie partie = new Partie();
+		assertFalse(partie != NULL);
+	}
 }
