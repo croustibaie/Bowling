@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Scanner;
 
 class Partie {
@@ -45,5 +46,15 @@ class Partie {
 	
 	public Joueur getCurrentPlayer(){
 		return playerList.get(currentPlayer);
+	}
+
+	public List<ScorePair> getAllPlayersScore()
+	{
+		List<ScorePair> list=new ArrayList<ScorePair>();
+		for (Joueur j : playerList)
+		{
+			list.add(new ScorePair(j.getScore(),playerList.indexOf(j)));
+		}
+		return list;
 	}
 }

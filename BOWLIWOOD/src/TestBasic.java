@@ -77,4 +77,20 @@ public class TestBasic  {
 		Joueur joueur = new Joueur("Bob");
 		joueur.lancer(5, 7);
 	}
+
+	@Test
+	public void testGetScore () throws  RaiseException
+	{
+		Partie partie = new Partie();
+		partie.setJoueur(new Joueur("Bob"));
+		partie.setJoueur(new Joueur("Joe"));
+		partie.getCurrentPlayer().lancer(4,4);
+		partie.nextPlayer();
+		partie.getCurrentPlayer().lancer(2,0);
+		assertNotNull(partie.getAllPlayersScore());
+		assertTrue(partie.getAllPlayersScore().get(0).getScore()==8);
+		assertTrue(partie.getAllPlayersScore().get(1).getScore()==2);
+		assertFalse(partie.getAllPlayersScore().get(1).getScore()==6);
+		assertFalse(partie.getAllPlayersScore().size()==1);
+	}
 }
