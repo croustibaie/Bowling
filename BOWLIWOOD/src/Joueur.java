@@ -6,7 +6,8 @@ class Joueur {
 	
 	private int score;
 	
-	Joueur(){
+	Joueur()
+	{
 		this.score = 0;
 	}
 	
