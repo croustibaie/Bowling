@@ -24,7 +24,7 @@ public class TestBasic  {
 	}
 	
 	@Test
-	public void testLancers(){
+	public void testLancers() throws RaiseException{
 		Joueur joueur = new Joueur("Bob");
 		
 		joueur.lancer(4,4);
@@ -58,7 +58,8 @@ public class TestBasic  {
 	}
 	
 	@Test
-	public void testNextPlayer(){
+	public void testNextPlayer()
+	{
 		Partie partie=new Partie();
 		partie.setJoueur(new Joueur ("bob"));
 		partie.setJoueur(new Joueur ("michael"));
@@ -67,8 +68,13 @@ public class TestBasic  {
 		partie.nextPlayer();
 		partie.nextPlayer();
 		partie.nextPlayer();
-		assertTrue(partie.getCurrentPlayer().getName().equals("bob"));
-		
-		
+		assertTrue(partie.getCurrentPlayer().getName().equals("bob"));	
+	}
+	
+	@Test(expected=RaiseException.class)
+	public void testLimitationScore() throws RaiseException
+	{
+		Joueur joueur = new Joueur("Bob");
+		joueur.lancer(5, 7);
 	}
 }
