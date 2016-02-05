@@ -15,9 +15,11 @@ public class TestBasic  {
 	@Test
 	public void testNbJoueurs(){
 		Partie partie = new Partie();
+		partie.setJoueur(new Joueur ("bob"));
+		partie.setJoueur(new Joueur ("michael"));
+		partie.setJoueur(new Joueur ("Alice"));
 		
-		partie.setNb_joueurs(5);
-		assertTrue(partie.getNb_joueurs()==5);
+		assertTrue(partie.getNbJoueurs()==3);
 		
 	}
 	
@@ -40,7 +42,7 @@ public class TestBasic  {
 	@Test
 	public void testAddedPlayer()
 	{
-		Partie partie= new Partie(1);
+		Partie partie= new Partie();
 		partie.setJoueur(new Joueur("bob"));
 		assertTrue(partie.getJoueur(0).getName().equals("bob"));
 	}
@@ -53,5 +55,20 @@ public class TestBasic  {
 		partie.setJoueur(new Joueur ("michael"));
 		assertNotNull(partie.getJoueur(0));
 		assertNotNull(partie.getJoueur(1));
+	}
+	
+	@Test
+	public void testNextPlayer(){
+		Partie partie=new Partie();
+		partie.setJoueur(new Joueur ("bob"));
+		partie.setJoueur(new Joueur ("michael"));
+		partie.setJoueur(new Joueur ("Alice"));
+		
+		partie.nextPlayer();
+		partie.nextPlayer();
+		partie.nextPlayer();
+		assertTrue(partie.getCurrentPlayer().getName().equals("bob"));
+		
+		
 	}
 }
