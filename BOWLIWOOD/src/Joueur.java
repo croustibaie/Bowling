@@ -1,19 +1,21 @@
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 class Joueur {
 	
 	private String name;
-	
-	private int score;
+	private List<Round> score;
 	
 	Joueur()
 	{
-		this.score = 0;
+		this.score = new ArrayList<Round>();
 	}
 	
 	Joueur(String name){
 		this.name = name;
-		this.score = 0;
+		this.score = new ArrayList<Round>();
 	}
 
 	public String getName() {
@@ -25,13 +27,14 @@ class Joueur {
 	}
 
 	public int getScore() {
-		return score;
+		int totalScore=0;
+		for (Round r: score)
+		{
+			totalScore+=r.getThrow1() + r.getThrow2();
+		}
+		return totalScore;
 	}
 
-	public void setScore(int score) {
-		this.score = score;
-	}
-	
 	public void lancer(int l1,int l2) throws RaiseException{
 		if (l1+l2 > 10)
 		{
@@ -39,7 +42,7 @@ class Joueur {
 		}
 		else
 		{
-			this.score += l1 +l2;
+			this.score.add(new Round(l1,l2));
 		}
 	}
 

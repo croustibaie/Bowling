@@ -1,3 +1,5 @@
+import org.junit.Test;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
@@ -57,4 +59,5 @@ class Partie {
 		}
 		return list;
 	}
+
 }
