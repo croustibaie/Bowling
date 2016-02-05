@@ -1,4 +1,7 @@
-import junit.framework.TestCase;
+
+
+import static org.junit.Assert.*;
+
 import org.junit.*;
 
 public class TestBasic  {
@@ -6,6 +9,6 @@ public class TestBasic  {
 	@Test
 	public void testPartie() {
 		Partie partie = new Partie();
-		assertFalse(partie != NULL);
+		assertNotNull(partie);
 	}
 }
