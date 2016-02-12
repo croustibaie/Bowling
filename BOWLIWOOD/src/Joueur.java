@@ -30,7 +30,7 @@ class Joueur {
 		int totalScore=0;
 		for (Round r: score)
 		{
-			totalScore+=r.getThrow1() + r.getThrow2();
+			totalScore+=r.getRoundScore();
 		}
 		return totalScore;
 	}
@@ -42,8 +42,32 @@ class Joueur {
 		}
 		else
 		{
-			this.score.add(new Round(l1,l2));
+			this.score.add(new Round(l1, l2));
+			if (this.score.size() < 2)
+			{
+				if ((l1 + l2) < 10)
+				{
+					this.score.get(this.score.size() - 1).setScore();
+				}
+			}
+			else
+			{
+				if (this.score.get(this.score.size() - 2).getSpare() == true)
+				{
+					this.score.get(this.score.size() - 2).setSpecialScore(l1);
+				}
+			}
+			if ((l1 + l2) < 10)
+			{
+				this.score.get(this.score.size() - 1).setScore();
+			}
 		}
+
+	}
+
+	public Round getRound(int index)
+	{
+		return score.get(index);
 	}
 
 }

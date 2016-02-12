@@ -106,4 +106,16 @@ public class TestBasic  {
 		assertFalse(partie.getNbJoueurs()==3);
 
 	}
+
+	@Test
+	public void testSpareScore() throws RaiseException
+	{
+		Partie partie= new Partie();
+		partie.setJoueur(new Joueur("Bob"));
+		partie.getCurrentPlayer().lancer(1,9);
+		partie.getCurrentPlayer().lancer(2,0);
+		int s=partie.getCurrentPlayer().getRound(0).getRoundScore();
+		assertTrue(s==12);
+		assertFalse(s==11);
+	}
 }
