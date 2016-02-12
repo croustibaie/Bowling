@@ -118,4 +118,16 @@ public class TestBasic  {
 		assertTrue(s==12);
 		assertFalse(s==11);
 	}
+
+	@Test
+	public void testSimpleStrikeScore() throws RaiseException
+	{
+		Partie partie= new Partie();
+		partie.setJoueur(new Joueur("Bob"));
+		partie.getCurrentPlayer().lancer(10,0);
+		partie.getCurrentPlayer().lancer(2,4);
+		int s=partie.getCurrentPlayer().getRound(0).getRoundScore();
+		assertTrue(s==16);
+		assertFalse(s==18);
+	}
 }
