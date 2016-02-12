@@ -189,7 +189,12 @@ public class TestBasic  {
 		partie.getCurrentPlayer().lancer(1,6);
 		partie.getCurrentPlayer().lancer(8,1);
 		boolean replay = partie.getCurrentPlayer().shoot(10);
+		boolean replay2 = partie.getCurrentPlayer().shoot(10);
+		boolean replay3 = partie.getCurrentPlayer().shoot(5);
 		assertTrue(replay);
+		assertTrue(replay2);
+		assertFalse(replay3);
+
 		
 	}
 }
