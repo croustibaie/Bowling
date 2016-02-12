@@ -130,4 +130,26 @@ public class TestBasic  {
 		assertTrue(s==16);
 		assertFalse(s==18);
 	}
+
+	@Test
+	public void testComplexStrikeScore() throws RaiseException
+	{
+		Partie partie= new Partie();
+		partie.setJoueur(new Joueur("Bob"));
+		partie.getCurrentPlayer().lancer(10,0);
+		partie.getCurrentPlayer().lancer(10,0);
+		partie.getCurrentPlayer().lancer(10,0);
+		partie.getCurrentPlayer().lancer(8,2);
+		partie.getCurrentPlayer().lancer(1,0);
+		int s=partie.getCurrentPlayer().getRound(0).getRoundScore();
+		int s2=partie.getCurrentPlayer().getRound(1).getRoundScore();
+		int s3=partie.getCurrentPlayer().getRound(2).getRoundScore();
+		int s4=partie.getCurrentPlayer().getRound(3).getRoundScore();
+		int s5=partie.getCurrentPlayer().getRound(4).getRoundScore();
+		assertTrue(s==30);
+		assertTrue(s2==28);
+		assertTrue(s3==20);
+		assertTrue(s4==11);
+		assertTrue(s5==1);
+	}
 }

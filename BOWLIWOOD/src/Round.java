@@ -6,6 +6,7 @@ public class Round {
     private int throw2;
     private int score;
     private boolean spare;
+    private boolean strike;
 
 
     public Round(int throw1, int throw2) {
@@ -13,11 +14,21 @@ public class Round {
         this.throw2=throw2;
         if ((throw1+throw2)==10)
         {
-            this.spare=true;
+            if (throw2>0)
+            {
+                this.spare=true;
+                this.strike=false;
+            }
+            else
+            {
+                this.spare=false;
+                this.strike=true;
+            }
         }
         else
         {
-            spare=false;
+            this.spare=false;
+            this.strike=false;
         }
     }
 
@@ -48,6 +59,11 @@ public class Round {
     public boolean getSpare()
     {
         return  this.spare;
+    }
+
+    public boolean getStrike()
+    {
+        return this.strike;
     }
 
 

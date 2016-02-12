@@ -56,13 +56,25 @@ class Joueur {
 				{
 					this.score.get(this.score.size() - 2).setSpecialScore(l1);
 				}
-			}
-			if ((l1 + l2) < 10)
-			{
-				this.score.get(this.score.size() - 1).setScore();
+				if (this.score.size()>2) {
+					if (this.score.get(this.score.size() - 3).getStrike() == true && this.score.get(this.score.size() - 2).getStrike() == true)
+					{
+						this.score.get(this.score.size() - 3).setSpecialScore(10+l1);
+					}
+				}
+				if (this.score.get(this.score.size() - 2).getStrike() == true)
+				{
+					if (l1<10)
+					{
+						this.score.get(this.score.size() - 2).setSpecialScore(l1 + l2);
+					}
+				}
+				if ((l1 + l2) < 10)
+				{
+					this.score.get(this.score.size() - 1).setScore();
+				}
 			}
 		}
-
 	}
 
 	public Round getRound(int index)
