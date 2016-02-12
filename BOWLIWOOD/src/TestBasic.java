@@ -187,14 +187,70 @@ public class TestBasic  {
 		partie.getCurrentPlayer().lancer(10,0);
 		partie.getCurrentPlayer().lancer(10,0);
 		partie.getCurrentPlayer().lancer(1,6);
-		partie.getCurrentPlayer().lancer(8,1);
+		boolean replay0 = partie.getCurrentPlayer().shoot(8);
+		boolean replay01 = partie.getCurrentPlayer().shoot(1);
 		boolean replay = partie.getCurrentPlayer().shoot(10);
 		boolean replay2 = partie.getCurrentPlayer().shoot(10);
 		boolean replay3 = partie.getCurrentPlayer().shoot(5);
+		assertTrue(replay0);
+		assertFalse(replay01);
 		assertTrue(replay);
 		assertTrue(replay2);
+		assertFalse(replay3);	
+	}
+	
+	@Test
+	public void testPlayRound2() throws RaiseException
+	{
+		Partie partie= new Partie();
+		partie.setJoueur(new Joueur("Bob"));
+		partie.getCurrentPlayer().lancer(10,0);
+		partie.getCurrentPlayer().lancer(10,0);
+		partie.getCurrentPlayer().lancer(10,0);
+		partie.getCurrentPlayer().lancer(8,2);
+		partie.getCurrentPlayer().lancer(1,0);
+		partie.getCurrentPlayer().lancer(10,0);
+		partie.getCurrentPlayer().lancer(10,0);
+		partie.getCurrentPlayer().lancer(1,6);
+		//round 9
+		boolean replay0 = partie.getCurrentPlayer().shoot(8);
+		boolean replay01 = partie.getCurrentPlayer().shoot(1);
+		//round 10
+		boolean replay = partie.getCurrentPlayer().shoot(3);
+		boolean replay2 = partie.getCurrentPlayer().shoot(7);
+		//additional throw
+		boolean replay3 = partie.getCurrentPlayer().shoot(5);
+		assertTrue(replay0);
+		assertFalse(replay01);
+		assertTrue(replay);
+		assertTrue(replay2);
+		assertFalse(replay3);	
+	}
+	
+	@Test
+	public void testPlayRound3() throws RaiseException
+	{
+		Partie partie= new Partie();
+		partie.setJoueur(new Joueur("Bob"));
+		partie.getCurrentPlayer().lancer(10,0);
+		partie.getCurrentPlayer().lancer(10,0);
+		partie.getCurrentPlayer().lancer(10,0);
+		partie.getCurrentPlayer().lancer(8,2);
+		partie.getCurrentPlayer().lancer(1,0);
+		partie.getCurrentPlayer().lancer(10,0);
+		boolean replay3 = partie.getCurrentPlayer().shoot(10);
+		partie.getCurrentPlayer().lancer(1,6);
+		//round 9
+		boolean replay0 = partie.getCurrentPlayer().shoot(8);
+		boolean replay01 = partie.getCurrentPlayer().shoot(1);
+		//round 10
+		boolean replay = partie.getCurrentPlayer().shoot(3);
+		boolean replay2 = partie.getCurrentPlayer().shoot(5);
+	
+		assertTrue(replay0);
+		assertFalse(replay01);
+		assertTrue(replay);
+		assertFalse(replay2);	
 		assertFalse(replay3);
-
-		
 	}
 }
