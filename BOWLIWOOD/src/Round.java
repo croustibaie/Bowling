@@ -2,6 +2,7 @@
  * Created by croustibaie on 2/5/16.
  */
 public class Round {
+	
     private int throw1;
     private int throw2;
     private int score;
@@ -11,7 +12,7 @@ public class Round {
 
     public Round(int throw1, int throw2) {
         this.throw1 = throw1;
-        this.throw2=throw2;
+        this.throw2 = throw2;
         if ((throw1+throw2)==10)
         {
             if (throw2>0)

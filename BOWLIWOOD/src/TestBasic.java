@@ -152,4 +152,44 @@ public class TestBasic  {
 		assertTrue(s4==11);
 		assertTrue(s5==1);
 	}
+	
+	@Test
+	public void testStrikeLastRound() throws RaiseException
+	{
+		Partie partie= new Partie();
+		partie.setJoueur(new Joueur("Bob"));
+		partie.getCurrentPlayer().lancer(10,0);
+		partie.getCurrentPlayer().lancer(10,0);
+		partie.getCurrentPlayer().lancer(10,0);
+		partie.getCurrentPlayer().lancer(8,2);
+		partie.getCurrentPlayer().lancer(1,0);
+		partie.getCurrentPlayer().lancer(10,0);
+		partie.getCurrentPlayer().lancer(10,0);
+		partie.getCurrentPlayer().lancer(1,6);
+		partie.getCurrentPlayer().lancer(8,1);
+		partie.getCurrentPlayer().lancer(10,0);
+		partie.getCurrentPlayer().lancer(10, 9);
+		
+		int s=partie.getCurrentPlayer().getRound(9).getRoundScore();
+		assertTrue(s==29);	
+	}
+	
+	@Test
+	public void testPlayRound() throws RaiseException
+	{
+		Partie partie= new Partie();
+		partie.setJoueur(new Joueur("Bob"));
+		partie.getCurrentPlayer().lancer(10,0);
+		partie.getCurrentPlayer().lancer(10,0);
+		partie.getCurrentPlayer().lancer(10,0);
+		partie.getCurrentPlayer().lancer(8,2);
+		partie.getCurrentPlayer().lancer(1,0);
+		partie.getCurrentPlayer().lancer(10,0);
+		partie.getCurrentPlayer().lancer(10,0);
+		partie.getCurrentPlayer().lancer(1,6);
+		partie.getCurrentPlayer().lancer(8,1);
+		boolean replay = partie.getCurrentPlayer().shoot(10);
+		assertTrue(replay);
+		
+	}
 }
